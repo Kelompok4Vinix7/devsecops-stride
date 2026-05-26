@@ -28,10 +28,9 @@ jobs:
               uses:
       gitleaks/gitleaks-action@v2
 
-                  - name: Run Trivy Vulnerability
-      Scanner
-                    uses:
-      aquasecurity/trivy-action@master
-                    with:
-                      scan-type:  'fs'
-                      scan-ref:  '.'
+                  - name: Run Trivy Vulnerability Scanner
+                          uses:
+                  aquasecurity/trivy-action@master
+                          with:
+                            scan-type:  'fs'
+                            scan-ref:  '.'
