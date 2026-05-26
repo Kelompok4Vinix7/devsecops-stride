@@ -20,9 +20,9 @@ jobs:
         run: pip install flask
 
       - name: Run Flask Application
-              run: |
-                python app.py & 
-                sleep 5
+        run: |
+          python app.py & 
+          sleep 5
       
             - name: Run Gitleaks Scan
               uses:
