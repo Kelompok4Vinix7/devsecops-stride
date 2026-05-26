@@ -28,7 +28,8 @@ jobs:
               uses:
  gitleaks/gitleaks-action@v2
 
-            - name: Run Trivy Vulnerability Scanner
+            - name: Run Trivy Vulnerability
+ Scanner
               uses:
  aquasecurity/trivy-action@master
               with:
