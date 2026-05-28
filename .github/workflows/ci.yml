@@ -1,4 +1,4 @@
-```yaml
+
 name: DevSecOps Pipeline
 
 on:
@@ -70,4 +70,3 @@ jobs:
 
       # - name: Run Bandit Security Scan
       #   run: bandit -r .
-```
