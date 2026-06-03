@@ -37,36 +37,4 @@ jobs:
           scan-ref: '.'
          
 
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3
-
-      - name: Create Artifact
-        run: |
-          echo "DevSecOps Artifact" > artifact.txt
-
-      - name: Sign Artifact
-          env          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
-        run: |
-          echo "${{ secrets.COSIGN_PRIVATE_KEY }}" > cosign.key
-
-          cosign sign-blob \
-            --tlog-upload=false \
-            --key cosign.key \
-            artifact.txt \
-            --output-signature artifact.sig
-
-      - name: Verify Artifact
-        run: |
-          echo "${{ secrets.COSIGN_PUBLIC_KEY }}" > cosign.pub
-
-          cosign verify-blob \
-            --insecure-ignore-tlog=true \
-            --key cosign.pub \
-            --signature artifact.sig \
-            artifact.txt
-
-      # - name: Install Bandit
-      #   run: pip install bandit
-
-      # - name: Run Bandit Security Scan
-      #   run: bandit -r .
+      
