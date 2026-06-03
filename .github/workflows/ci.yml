@@ -36,5 +36,8 @@ jobs:
           scan-type: 'fs'
           scan-ref: '.'
          
-
-      
+      - name: Generate SBOM 
+        uses: anchore/sbom-action@v0
+        with: 
+          path: .
+          format: cyclonedx-json
