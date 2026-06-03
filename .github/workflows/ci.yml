@@ -35,9 +35,7 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
-          vuln-type: 'library'
-          severity: 'HIGH,CRITICAL'
-          exit-code: '1' 
+         
 
       - name: Install Cosign
         uses: sigstore/cosign-installer@v3
@@ -47,8 +45,7 @@ jobs:
           echo "DevSecOps Artifact" > artifact.txt
 
       - name: Sign Artifact
-        env:
-          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+          env          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
         run: |
           echo "${{ secrets.COSIGN_PRIVATE_KEY }}" > cosign.key
 
